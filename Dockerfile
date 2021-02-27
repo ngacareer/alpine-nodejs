@@ -4,7 +4,7 @@
 # Twitter: https://twitter.com/ngacareer
 # Docker:  https://hub.docker.com/ngacareer
 # web   :  https://ngacareer.com
-i
+
 FROM  ngacareer/alpine-curl
 
 LABEL maintainer="triuhv <ms@ngacareer.com>" \
@@ -18,7 +18,8 @@ LABEL maintainer="triuhv <ms@ngacareer.com>" \
 ENV METEOR_VERSION=1.8.1
 ENV METEOR_ALLOW_SUPERUSER true
 ENV NODE_VERSION 14.16.0
-RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/v3.8/main/ nodejs=${NODE_VERSION}-r0 npm 
+ENV ALPINE_VERSION 3.13
+RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VERSION}/main/ nodejs=${NODE_VERSION}-r0 npm 
 
 RUN node --version
 
